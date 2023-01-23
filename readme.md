@@ -3,6 +3,8 @@
 	This is a ChatGPT application powered by TKinter. The Udemy course that can be found at: http://www.udemy.com/course/create-a-chatgpt-ai-bot-with-tkinter. 
 	After following that tutorial, I modified it to make it an Object Oriented program for better useability.
 	
+	This requires you setup and account and create a key at https://openai.com/
+	
 ## Instructions
 
 	1) Pull Repository
