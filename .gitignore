@@ -5,6 +5,9 @@
 input/config.json
 my_chatgpt/*
 
+app/input/config.json
+app/my_chatgpt/*
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
