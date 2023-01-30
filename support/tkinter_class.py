@@ -6,7 +6,20 @@ from tkinter import Text, WORD, END
 import customtkinter
 import openai
 
+import threading
+import pyttsx3
+speech_engine = pyttsx3.init()
+
 config = get_configuration()
+
+def say(text):
+    
+   voices = speech_engine.getProperty('voices')
+   speech_engine.setProperty('voice', voices[1].id)
+   speech_engine.setProperty('rate', 175)
+   speech_engine.say(text)
+   speech_engine.runAndWait()
+    
 
 class TKInter_Class:
     
@@ -55,8 +68,12 @@ class TKInter_Class:
                     frequency_penalty = 0.0,
                     presence_penalty = 0.0)
                 
-                self.my_text.insert(END, (response['choices'][0]['text']).strip())
+                self.response_text = response['choices'][0]['text']
+                self.my_text.insert(END, (self.response_text).strip())
                 self.my_text.insert(END, "\n\n")
+                
+                # speak in new thread
+                threading.Thread(target=say, args=(self.response_text,)).start()
             
             except Exception as e:
                 self.my_text.insert(END, "\n\n There was an error \n\n{}".format(e))

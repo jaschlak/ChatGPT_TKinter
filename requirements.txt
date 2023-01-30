@@ -1,2 +1,4 @@
 customtkinter
 openai
+pyttsx3
+SpeechRecognition
